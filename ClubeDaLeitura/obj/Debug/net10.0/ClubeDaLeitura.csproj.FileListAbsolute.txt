@@ -1,0 +1,14 @@
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\bin\Debug\net10.0\ClubeDaLeitura.exe
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\bin\Debug\net10.0\ClubeDaLeitura.deps.json
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\bin\Debug\net10.0\ClubeDaLeitura.runtimeconfig.json
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\bin\Debug\net10.0\ClubeDaLeitura.dll
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\bin\Debug\net10.0\ClubeDaLeitura.pdb
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\obj\Debug\net10.0\ClubeDaLeitura.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\obj\Debug\net10.0\ClubeDaLeitura.AssemblyInfoInputs.cache
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\obj\Debug\net10.0\ClubeDaLeitura.AssemblyInfo.cs
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\obj\Debug\net10.0\ClubeDaLeitura.csproj.CoreCompileInputs.cache
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\obj\Debug\net10.0\ClubeDaLeitura.dll
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\obj\Debug\net10.0\refint\ClubeDaLeitura.dll
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\obj\Debug\net10.0\ClubeDaLeitura.pdb
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\obj\Debug\net10.0\ClubeDaLeitura.genruntimeconfig.cache
+C:\Users\victo\OneDrive\Documentos\Clube Da Leitura\ClubeDaLeitura\obj\Debug\net10.0\ref\ClubeDaLeitura.dll
