@@ -19,6 +19,9 @@ internal class Program
         Revista revista = new Revista("Action Comics", 155, 1990, caixa);
         repositorioRevista.Cadastrar(revista);
 
+        EntidadeBase entidadeBase = caixa;
+        entidadeBase = revista;
+
         while (true)
         {
             Console.Clear();
