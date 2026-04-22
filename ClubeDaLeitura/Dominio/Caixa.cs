@@ -1,35 +1,21 @@
-using System.Security.Cryptography;
+using ClubeDaLeitura.ConsoleApp.Dominio.Base;
 
 namespace ClubeDaLeitura.ConsoleApp.Dominio;
 
-/*
-    ● Campos obrigatórios:
-        ○ Etiqueta (texto único, máximo 50 caracteres)
-        ○ Cor (seleção de paleta ou hexadecimal)
-        ○ Dias de empréstimo (número, padrão 7)
-    ● Não pode haver etiquetas duplicadas
-    ● Não permitir excluir uma caixa caso tenha revistas vinculadas
-    ● Cada caixa define o prazo máximo para empréstimo de suas revistas
-*/
-// Encapsulamento
 public class Caixa : EntidadeBase
-{ // propriedade
-    public string Etiqueta { get; set; } = string.Empty; // propriedade
-    public string Cor { get; set; } = string.Empty; // propriedade
-    public int DiasDeEmprestimo { get; set; } = 7;  // propriedade
+{
+    public string Etiqueta { get; set; } = string.Empty;
+    public string Cor { get; set; } = string.Empty;
+    public int DiasDeEmprestimo { get; set; } = 7;
 
-    // construtor de classe
-    // toda instância que for criada PRECISA dessas informações
     public Caixa(string etiqueta, string cor, int diasDeEmprestimo)
     {
-
-
         Etiqueta = etiqueta;
         Cor = cor;
         DiasDeEmprestimo = diasDeEmprestimo;
     }
 
-    public string[] Validar()
+    public override string[] Validar()
     {
         string erros = string.Empty;
 
@@ -51,8 +37,10 @@ public class Caixa : EntidadeBase
         return erros.Split(';', StringSplitOptions.RemoveEmptyEntries); // separar
     }
 
-    public void AtualizarRegistro(Caixa caixaAtualizada)
+    public override void AtualizarRegistro(EntidadeBase entidadeAtualizada)
     {
+        Caixa caixaAtualizada = (Caixa)entidadeAtualizada;
+
         Etiqueta = caixaAtualizada.Etiqueta;
         Cor = caixaAtualizada.Cor;
         DiasDeEmprestimo = caixaAtualizada.DiasDeEmprestimo;
