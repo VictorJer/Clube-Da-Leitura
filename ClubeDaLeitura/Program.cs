@@ -1,43 +1,61 @@
-﻿
-using ClubeDaLeitura.ConsoleApp.Apresentacao;
-using ClubeDaLeitura.ConsoleApp.Dominio;
+﻿using ClubeDaLeitura.ConsoleApp.Apresentacao;
+using ClubeDaLeitura.ConsoleApp.Apresentacao.Base;
 using ClubeDaLeitura.ConsoleApp.Infraestrutura;
 
+// 1. Instanciação de dependências
 RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
+RepositorioRevista repositorioRevista = new RepositorioRevista();
+RepositorioAmigo repositorioAmigo = new RepositorioAmigo();
+RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
 
-TelaCaixa telaCaixa = new TelaCaixa(repositorioCaixa);
+TelaPrincipal telaPrincipal = new TelaPrincipal
+(
+    repositorioCaixa,
+    repositorioRevista,
+    repositorioAmigo,
+    repositorioEmprestimo
+);
 
-Caixa caixa = new Caixa("Lançamentos", "Vermelho", 3);
-repositorioCaixa.Cadastrar(caixa);
-
+// 2. Loop do menu principal
 while (true)
 {
-    Console.Clear();
-    Console.WriteLine("---------------------------------");
-    Console.WriteLine("Clube da Leitura");
-    Console.WriteLine("---------------------------------");
-    Console.WriteLine("1 - Gerenciar caixas de revistas");
-    Console.WriteLine("2 - Gerenciar revistas");
-    Console.WriteLine("3 - Gerenciar amigos");
-    Console.WriteLine("4 - Gerenciar empréstimos");
-    Console.WriteLine("S - Sair");
-    Console.WriteLine("---------------------------------");
-    Console.Write("> ");
-    string? opcaoMenuPrincipal = Console.ReadLine()?.ToUpper();
+    ITela? telaSelecionada = telaPrincipal.ApresentarMenuOpcoesPrincipal();
 
-    if (opcaoMenuPrincipal == "S")
+    if (telaSelecionada == null)
     {
         Console.Clear();
         break;
     }
 
+    // 3. Loop do menu interno
     while (true)
     {
-        string? opcaoMenuInterno = string.Empty;
+        string? opcaoMenuInterno = telaSelecionada.ObterOpcaoMenu();
 
-        if (opcaoMenuPrincipal == "1") // Caixas
+        if (opcaoMenuInterno == "S")
         {
-            opcaoMenuInterno = telaCaixa.ObterOpcaoMenu();
+            Console.Clear();
+            break;
+        }
+
+        if (telaSelecionada is TelaBase telaBase)
+        {
+            if (opcaoMenuInterno == "1")
+                telaBase.Cadastrar();
+
+            else if (opcaoMenuInterno == "2")
+                telaBase.Editar();
+
+            else if (opcaoMenuInterno == "3")
+                telaBase.Excluir();
+
+            else if (opcaoMenuInterno == "4")
+                telaBase.VisualizarTodos(deveExibirCabecalho: true);
+        }
+
+        else if (telaSelecionada is TelaEmprestimo telaEmprestimo)
+        {
+            opcaoMenuInterno = telaEmprestimo.ObterOpcaoMenu();
 
             if (opcaoMenuInterno == "S")
             {
@@ -46,31 +64,13 @@ while (true)
             }
 
             if (opcaoMenuInterno == "1")
-                telaCaixa.Cadastrar();
+                telaEmprestimo.Abrir();
 
             else if (opcaoMenuInterno == "2")
-                telaCaixa.Editar();
+                telaEmprestimo.Concluir();
 
             else if (opcaoMenuInterno == "3")
-                telaCaixa.Excluir();
-
-            else if (opcaoMenuInterno == "4")
-                telaCaixa.VisualizarTodos(deveExibirCabecalho: true);
-        }
-
-        else if (opcaoMenuPrincipal == "2")
-        {
-
-        }
-
-        else if (opcaoMenuPrincipal == "3")
-        {
-
-        }
-
-        else if (opcaoMenuPrincipal == "4")
-        {
-
+                telaEmprestimo.VisualizarTodos(deveExibirCabecalho: true);
         }
     }
 }
